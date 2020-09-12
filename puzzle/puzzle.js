@@ -1264,11 +1264,11 @@ function updateGlobalBufferAndViews(buf) {
 }
 
 var STATIC_BASE = 1024,
-    STACK_BASE = 5281008,
+    STACK_BASE = 5280656,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 38128,
-    DYNAMIC_BASE = 5281008,
-    DYNAMICTOP_PTR = 38112;
+    STACK_MAX = 37776,
+    DYNAMIC_BASE = 5280656,
+    DYNAMICTOP_PTR = 37760;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 assert(DYNAMIC_BASE % 16 === 0, 'heap must start aligned');
@@ -1784,14 +1784,14 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  1121: function($0) {if (document.cookie.length > 0) { var c_start = document.cookie.indexOf($0 + "="); if (c_start != -1) { var c_end = document.cookie.indexOf(";", c_start); if (c_end == -1) { c_end = document.cookie.length; } return parseInt(unescape(document.cookie.substring(c_start + ($0 + "=").length, c_end))); } } return 0;},  
- 1435: function($0, $1) {var date = new Date(); date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000)); var expires = "; expires=" + date.toGMTString(); document.cookie = $0 + "=" + $1 + expires + "; path=/";}
+  1121: function($0) {var data = window.localStorage.getItem($0 + ""); if (data != null) { return data; } else { return 0; }},  
+ 1226: function($0, $1) {window.localStorage.setItem($0 + "", $1 + "");}
 };
 
 
 
 
-// STATICTOP = STATIC_BASE + 37104;
+// STATICTOP = STATIC_BASE + 36752;
 /* global initializers */  __ATINIT__.push({ func: function() { ___wasm_call_ctors() } });
 
 
@@ -2977,7 +2977,7 @@ var ASM_CONSTS = {
     }
 
   function _emscripten_get_sbrk_ptr() {
-      return 38112;
+      return 37760;
     }
 
   
