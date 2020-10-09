@@ -1264,11 +1264,11 @@ function updateGlobalBufferAndViews(buf) {
 }
 
 var STATIC_BASE = 1024,
-    STACK_BASE = 5279008,
+    STACK_BASE = 5279280,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 36128,
-    DYNAMIC_BASE = 5279008,
-    DYNAMICTOP_PTR = 36112;
+    STACK_MAX = 36400,
+    DYNAMIC_BASE = 5279280,
+    DYNAMICTOP_PTR = 36384;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 assert(DYNAMIC_BASE % 16 === 0, 'heap must start aligned');
@@ -1784,14 +1784,14 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  1035: function($0) {Asyncify.handleAsync(async () => { await navigator.clipboard.writeText(Module.UTF8ToString($0)); });},  
- 1138: function() {return Asyncify.handleAsync(async () => { const clip = await navigator.clipboard.readText(); const byteCount = Module.lengthBytesUTF8(clip) + 1; const ptr = Module._malloc(byteCount); Module.stringToUTF8(clip, ptr, byteCount); return ptr; });}
+  1031: function($0) {Asyncify.handleAsync(async () => { await navigator.clipboard.writeText(Module.UTF8ToString($0)); });},  
+ 1134: function() {return Asyncify.handleAsync(async () => { const clip = await navigator.clipboard.readText(); const byteCount = Module.lengthBytesUTF8(clip) + 1; const ptr = Module._malloc(byteCount); Module.stringToUTF8(clip, ptr, byteCount); return ptr; });}
 };
 
 
 
 
-// STATICTOP = STATIC_BASE + 35104;
+// STATICTOP = STATIC_BASE + 35376;
 /* global initializers */  __ATINIT__.push({ func: function() { ___wasm_call_ctors() } });
 
 
@@ -2977,7 +2977,7 @@ var ASM_CONSTS = {
     }
 
   function _emscripten_get_sbrk_ptr() {
-      return 36112;
+      return 36384;
     }
 
   
